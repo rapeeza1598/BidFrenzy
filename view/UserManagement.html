@@ -1,0 +1,64 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>User Management</title>
+        <link rel="stylesheet" href="./style/style.css" />
+    </head>
+    <body>
+        <header>
+            <h1>User Management</h1>
+            <nav>
+                <ul>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="#">User Management</a></li>
+                    <li><a href="#">Item Management</a></li>
+                    <li><a href="#">Bid Management</a></li>
+                    <li><a href="#">Payment Management</a></li>
+                    <li><a href="#">Reporting</a></li>
+                    <li><a href="#">Settings</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <button id="add-user-btn">Add User</button>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="user-table-body">
+                    <tr>
+                        <td>1</td>
+                        <td>Admin</td>
+                        <td>admin@email.com</td>
+                        <td>Admin</td>
+                        <td>
+                            <button class="edit-btn">Edit</button>
+                            <button class="delete-btn">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Jane Smith</td>
+                        <td>janesmith@example.com</td>
+                        <td>User</td>
+                        <td>
+                            <button class="edit-btn">Edit</button>
+                            <button class="delete-btn">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </main>
+        <footer>
+            <p>&copy; 2023 BidFrenzy By Rapeepan Moonthai & Tanawan Kumsan</p>
+        </footer>
+    </body>
+</html>

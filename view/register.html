@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Register</title>
+        <link rel="stylesheet" href="./style/style.css" />
+    </head>
+    <body>
+        <header>
+            <h1>
+                <a class="removeDeunderLine" href="./index.html">BidFrenzy</a>
+            </h1>
+            <nav>
+                <ul>
+                    <li><a href="./index.html">Home</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <div class="container">
+                <h1>Register</h1>
+                <form
+                    onsubmit="checkPasswordAndRegister(this)"
+                    method="post"
+                    action="javascript:void(0)"
+                >
+                    <input
+                        type="text"
+                        name="username"
+                        placeholder="Enter your username"
+                        id="userName"
+                        required
+                    />
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Enter your Email"
+                        id="email"
+                        required
+                    />
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="Enter your Password"
+                        id="password"
+                        required
+                    />
+                    <input
+                        type="password"
+                        name="repassword"
+                        placeholder="Enter your Re-Password"
+                        id="rePassword"
+                        required
+                    />
+                    <input
+                        type="text"
+                        name="firstName"
+                        placeholder="Enter your First Name"
+                        id="firstName"
+                        required
+                    />
+                    <input
+                        type="text"
+                        name="lastName"
+                        placeholder="Enter your Last Name"
+                        id="lastName"
+                        required
+                    />
+                    <button type="submit">Register</button>
+                </form>
+                <a href="./login.html">Back to Login</a>
+            </div>
+        </main>
+        <footer>
+            <p>&copy; 2023 BidFrenzy By Rapeepan Moonthai & Tanawan Kumsan</p>
+        </footer>
+        <script src="script.js"></script>
+    </body>
+</html>

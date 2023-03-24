@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Add Item Modal</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                font-size: 16px;
+                background-color: #f2f2f2;
+            }
+
+            .modal {
+                display: none;
+                position: fixed;
+                z-index: 1;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                background-color: rgba(0, 0, 0, 0.4);
+            }
+
+            .modal-content {
+                background-color: #fff;
+                margin: 10% auto;
+                padding: 20px;
+                border: 1px solid #888;
+                width: 80%;
+                max-width: 600px;
+                position: relative;
+            }
+
+            .close {
+                position: absolute;
+                top: 0;
+                right: 0;
+                font-size: 28px;
+                font-weight: bold;
+                color: #aaa;
+                padding: 10px;
+                cursor: pointer;
+            }
+
+            .close:hover,
+            .close:focus {
+                color: black;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+            input[type="text"],
+            input[type="number"],
+            input[type="url"],
+            textarea {
+                width: 100%;
+                padding: 12px 20px;
+                margin: 8px 0;
+                display: inline-block;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+                font-size: 16px;
+            }
+
+            label {
+                font-weight: bold;
+                display: block;
+                margin-top: 20px;
+            }
+
+            .btn {
+                background-color: #4caf50;
+                color: white;
+                padding: 12px 20px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 16px;
+            }
+
+            .btn:hover {
+                background-color: #45a049;
+            }
+
+            .btn-cancel {
+                background-color: #f44336;
+            }
+
+            .btn-cancel:hover {
+                background-color: #da190b;
+            }
+
+            .modal-footer {
+                margin-top: 20px;
+                text-align: right;
+            }
+
+            .error {
+                color: red;
+                font-size: 12px;
+                margin-top: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Add Item Modal</h1>
+        <button id="add-item-btn">Add Item</button>
+
+        <!-- The Modal -->
+        <div id="add-item-modal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <form id="add-item-form">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required />
+
+                    <label for="description">Description:</label>
+                    <textarea
+                        id="description"
+                        name="description"
+                        required
+                    ></textarea>
+
+                    <label for="starting-bid">Starting Bid:</label>
+                    <input
+                        type="number"
+                        id
+                        name="starting-bid"
+                        min="0"
+                        required
+                    />
+
+                    <label for="image-url">Image URL:</label>
+                    <input
+                        type="url"
+                        id="image-url"
+                        name="image-url"
+                        required
+                    />
+
+                    <label for="end-time">End Time:</label>
+                    <input
+                        type="datetime-local"
+                        id="end-time"
+                        name="end-time"
+                        required
+                    />
+
+                    <div class="modal-footer">
+                        <button type="submit" class="btn">Add Item</button>
+                        <!-- <button type="button" class="btn btn-cancel close">Cancel</button> -->
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <script>
+            // Get the modal
+            var modal = document.getElementById("add-item-modal")
+
+            // Get the button that opens the modal
+            var btn = document.getElementById("add-item-btn")
+
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0]
+
+            // When the user clicks on the button, open the modal
+            btn.onclick = function () {
+                modal.style.display = "block"
+            }
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function () {
+                modal.style.display = "none"
+            }
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none"
+                }
+            }
+
+            // Validate the form and add the item to the list
+            var form = document.getElementById("add-item-form")
+            form.addEventListener("submit", function (event) {
+                event.preventDefault()
+
+                var name = document.getElementById("name").value.trim()
+                var description = document
+                    .getElementById("description")
+                    .value.trim()
+                var startingBid = document.getElementById("starting-bid").value
+                var imageUrl = document.getElementById("image-url").value.trim()
+                var endTime = new Date(
+                    document.getElementById("end-time").value
+                )
+
+                var errors = []
+
+                if (name === "") {
+                    errors.push("Name is required.")
+                }
+
+                if (description === "") {
+                    errors.push("Description is required.")
+                }
+
+                if (isNaN(startingBid) || startingBid < 0) {
+                    errors.push("Starting Bid must be a positive number.")
+                }
+
+                if (imageUrl === "") {
+                    errors.push("Image URL is required.")
+                }
+
+                if (endTime <= new Date()) {
+                    errors.push("End Time must be in the future.")
+                }
+
+                if (errors.length > 0) {
+                    var errorList = document.createElement("ul")
+                    errors.forEach(function (error) {
+                        var listItem = document.createElement("li")
+                        listItem.innerText = error
+                        errorList.appendChild(listItem)
+                    })
+
+                    var errorDiv = document.createElement("div")
+                    errorDiv.classList.add("error")
+                    errorDiv.appendChild(errorList)
+
+                    form.appendChild(errorDiv)
+                } else {
+                    // Add the item to the list here
+                    console.log("Name: " + name)
+                    console.log("Description: " + description)
+                    console.log("Starting Bid: " + startingBid)
+                    console.log("Image URL: " + imageUrl)
+                    console.log("End Time: " + endTime)
+
+                    // Clear the form and close the modal
+                    form.reset()
+                    modal.style.display = "none"
+                }
+            })
+        </script>
+    </body>
+</html>

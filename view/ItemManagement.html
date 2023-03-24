@@ -1,0 +1,140 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Item Management</title>
+        <link rel="stylesheet" href="./style/item-management.css" />
+    </head>
+    <script src="./js/item-management.js"></script>
+    <body onload="getItem()">
+        <header>
+            <h1>Item Management</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">User Management</a></li>
+                    <li><a href="#">Item Management</a></li>
+                    <li><a href="#">Bid Management</a></li>
+                    <li><a href="#">Payment Management</a></li>
+                    <li><a href="#">Reporting</a></li>
+                    <li><a href="#">Settings</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <button id="add-item-btn" onclick="openModal()">Add Item</button>
+            <table id="item-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Starting Bid</th>
+                        <th>End Time</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="tItem">
+                    <!-- <tr>
+                        <td>1</td>
+                        <td>Item 1</td>
+                        <td>Description of item 1</td>
+                        <td>$50.00</td>
+                        <td>2021-12-31 23:59:59</td>
+                        <td>
+                            <button class="edit-btn">Edit</button>
+                            <button class="delete-btn">Delete</button>
+                        </td>
+                    </tr> -->
+                    <!-- More items... -->
+                </tbody>
+            </table>
+
+            <!-- <div id="edit-item-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>Edit Item</h2>
+                    <form>
+                        <label for="edit-name">Name:</label>
+                        <input
+                            type="text"
+                            id="edit-name"
+                            name="edit-name"
+                            required
+                        />
+
+                        <label for="edit-description">Description:</label>
+                        <textarea
+                            id="edit-description"
+                            name="edit-description"
+                        ></textarea>
+
+                        <label for="edit-starting-bid">Starting Bid:</label>
+                        <input
+                            type="number"
+                            id="edit-starting-bid"
+                            name="edit-starting-bid"
+                            required
+                        />
+
+                        <button type="submit">Save</button>
+                        <button type="button" id="cancel-edit-item-btn">
+                            Cancel
+                        </button>
+                    </form>
+                </div>
+            </div> -->
+            <div id="add-item-modal" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal()">&times;</span>
+                    <form id="add-item-form" action="javascript:void(0)">
+                        <label for="name">Name:</label>
+                        <input type="text" id="title" name="name" required />
+
+                        <label for="description">Description:</label>
+                        <textarea
+                            id="description"
+                            name="description"
+                            required
+                        ></textarea>
+
+                        <label for="starting-bid">Starting Bid:</label>
+                        <input
+                            type="number"
+                            id ="starting-bid"
+                            name="starting-bid"
+                            min="0"
+                            required
+                        />
+
+                        <label for="image-url">Image URL:</label>
+                        <input
+                            type="url"
+                            id="image-url"
+                            name="image-url"
+                            required
+                        />
+
+                        <label for="end-time">End Time:</label>
+                        <input
+                            type="datetime-local"
+                            id="end-time"
+                            name="end-time"
+                            required
+                        />
+
+                        <div class="modal-footer">
+                            <button type="submit" class="btn" onclick="addItem()">Add Item</button>
+                            <!-- <button type="button" class="btn btn-cancel close">Cancel</button> -->
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <p>&copy; 2023 BidFrenzy By Rapeepan Moonthai & Tanawan Kumsa</p>
+        </footer>
+    </body>
+</html>

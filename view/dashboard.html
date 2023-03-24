@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Auction Dashboard</title>
+  <link rel="stylesheet" href="./style/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Auction Dashboard Homepage</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="./UserManagement.html">User Management</a></li>
+        <li><a href="#">Item Management</a></li>
+        <li><a href="#">Bid Management</a></li>
+        <li><a href="#">Payment Management</a></li>
+        <li><a href="#">Reporting</a></li>
+        <li><a href="#">Settings</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section>
+      <h2>Overview</h2>
+      <div id="overview">
+        <p>Total items sold: <span id="total-items">0</span></p>
+        <p>Total revenue generated: <span id="total-revenue">$0.00</span></p>
+        <p>Total active bidders: <span id="total-bidders">0</span></p>
+      </div>
+    </section>
+    <section>
+      <h2>Recent Activity</h2>
+      <div id="recent-activity">
+        <ul>
+          <li>New item added: Item name (ID: 1234)</li>
+          <li>New bid placed: User name bid $100 on Item name (ID: 1234)</li>
+          <li>Payment received: User name paid $100 for Item name (ID: 1234)</li>
+        </ul>
+      </div>
+    </section>
+    <section>
+      <h2>Revenue by Month</h2>
+      <div id="revenue-by-month">
+        <canvas id="revenue-chart"></canvas>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2023 BidFrenzy By Rapeepan Moonthai & Tanawan Kumsa</p>
+  </footer>
+  <script src="./js/index.js"></script>
+</body>
+</html>

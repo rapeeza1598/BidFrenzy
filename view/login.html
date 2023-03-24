@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Login Page</title>
+        <link rel="stylesheet" href="./style/style.css" />
+    </head>
+    <body>
+        <header>
+            <h1>
+                <a class="removeDeunderLine" href="./index.html">BidFrenzy</a>
+            </h1>
+            <nav>
+                <ul>
+                    <li><a href="./index.html">Home</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <div class="container">
+                <h1>Login</h1>
+                <form onsubmit="return userLogin(this)" method="post" action="">
+                    <input
+                        type="text"
+                        name="username"
+                        placeholder="Enter your username"
+                        id="username"
+                        required
+                    />
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="Enter your password"
+                        id="password"
+                        required
+                    />
+                    <button type="submit">Login</button>
+                </form>
+                <a href="./register.html">Register</a>
+            </div>
+        </main>
+        <footer>
+            <p>&copy; 2023 BidFrenzy By Rapeepan Moonthai & Tanawan Kumsan</p>
+        </footer>
+        <script src="script.js"></script>
+    </body>
+</html>
